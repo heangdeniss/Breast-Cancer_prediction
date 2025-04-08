@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="whitesmoke">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Breast Cancer Prediction Web</title>
+</head>
+<body>
+    <h1>Breast Cancer Prediction Web</h1>
+    <h3>Using Logistic Regression Coefficients & Intercept</h3>
+    <p>This app predicts whether a breast cancer tumor is <strong>Malignant (1)</strong> or <strong>Benign (0)</strong>.</p>
+    
+    <form action="/predict" method="post">
+        <h4>Enter Tumor Measurements</h4>
+        <label>Radius Mean: <input type="number" step="0.1" name="radius_mean" value="14.0"></label><br>
+        <label>Texture Mean: <input type="number" step="0.1" name="texture_mean" value="19.0"></label><br>
+        <label>Perimeter Mean: <input type="number" step="0.1" name="perimeter_mean" value="90.0"></label><br>
+        <label>Symmetry Mean: <input type="number" step="0.01" name="symmetry_mean" value="0.2"></label><br>
+        <label>Radius SE: <input type="number" step="0.01" name="radius_se" value="0.3"></label><br>
+        <label>Concave Points SE: <input type="number" step="0.01" name="concave_points_se" value="0.02"></label><br>
+        <label>Radius Worst: <input type="number" step="0.1" name="radius_worst" value="16.0"></label><br>
+        <label>Texture Worst: <input type="number" step="0.1" name="texture_worst" value="25.0"></label><br>
+        <label>Smoothness Worst: <input type="number" step="0.01" name="smoothness_worst" value="0.15"></label><br>
+        <label>Concave Points Worst: <input type="number" step="0.01" name="concave_points_worst" value="0.2"></label><br>
+        <label>Symmetry Worst: <input type="number" step="0.01" name="symmetry_worst" value="0.3"></label><br>
+        <label>Fractal Dimension Worst: <input type="number" step="0.01" name="fractal_dimension_worst" value="0.08"></label><br>
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>
