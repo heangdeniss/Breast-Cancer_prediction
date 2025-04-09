@@ -67,22 +67,15 @@ app.post('/predict', (req, res) => {
         parseFloat(req.body.fractal_dimension_worst)
     ];
 
-    // Scale the features using Z-score normalization
     const scaled_features = input_features.map((feature, index) => (feature - mean_values[index]) / std_values[index]);
 
-    // Calculate the logit(p)
     let logit_p = intercept;
     for (let i = 0; i < scaled_features.length; i++) {
         logit_p += scaled_features[i] * theta_values[i];
     }
-
-    // Convert logit(p) to probability using sigmoid
     const probability = 1 / (1 + Math.exp(-logit_p));
-
-    // Determine diagnosis
     const diagnosis = probability >= 0.5 ? 'Malignant' : 'Benign';
 
-    // Render results
     res.render('result.ejs', {
         logit_p: logit_p.toFixed(4),
         probability: (probability * 100).toFixed(2),
